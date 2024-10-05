@@ -23,8 +23,22 @@ svg {
 }
 
 .ed_testimonial {
+    position: relative;
     padding: 60px 0px;
     background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+.shape_1,
+.shape_2 {
+    position: absolute;
+}
+
+.shape_1 {
+    right: 20%;
+}
+
+.shape_2 {
+    left: 20%;
 }
 
 /* testimonial header */

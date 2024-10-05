@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.container {
+    max-width: 1330px;
+    padding: 0px 15px;
+    margin: 0 auto;
+}
+
+.ed_testimonial {
+    padding: 60px 0px;
+}
+
+/* testimonial header */
+.ed_testimonial_header_content {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.ed_testimonial_header_content h1 {
+    font-size: 25px;
+    padding-bottom: 8px;
+    font-weight: 500;
+}
+
+.ed_testimonial_header_content h3 {
+    font-size: 33px;
+    padding-bottom: 10px;
+}
+
+.ed_testimonial_header_content span {
+    font-size: 14px;
+}
+
+.customomer_info_media img {
+    border-radius: 50%;
+    max-width: 100%;
+    width: 70px;
+    object-fit: cover;
+}
+
+.ed_testimonial_slide_item {
+    padding: 20px;
+    background: #ededed;
+    border-radius: 15px;
+}
+
+.customomer_info_media {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 15px;
+}
+
+.customer_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.customer_review span {
+    margin-top: 16px;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 1.3;
+    color: #000;
+}
+
+.customer_name h4 {
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.customer_name span {
+    font-size: 15px;
+    color: #676767;
+}
+
+.customomer_info_social a {
+    display: inline-block;
+    margin-top: -10px;
+}
+
+@media screen and (min-width:768px) {
+    .ed_testimonial_header_content {
+        margin-bottom: 60px;
+    }
+
+    .ed_testimonial_header_content h1 {
+        font-size: 30px;
+        padding-bottom: 20px;
+    }
+
+    .ed_testimonial_header_content h3 {
+        font-size: 45px;
+        padding-bottom: 15px;
+    }
+
+    .ed_testimonial_header_content span {
+        font-size: 16px;
+    }
+
+    .ed_testimonial_slide_item {
+        padding: 40px;
+    }
+
+    .customomer_info_media img {
+        width: 100px;
+    }
+
+    .customer_name h4 {
+        font-size: 20px;
+        margin-bottom: 7px;
+    }
+
+    .customer_name span {
+        font-size: 16px;
+    }
+
+    .customer_review span {
+        margin-top: 23px;
+        font-size: 19px;
+    }
+}

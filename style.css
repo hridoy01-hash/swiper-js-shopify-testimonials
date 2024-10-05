@@ -57,7 +57,7 @@ svg {
 }
 
 .ed_testimonial_slide_item {
-    padding: 20px;
+    padding: 30px 20px;
     background: #ededed;
     border-radius: 15px;
 }
@@ -119,8 +119,7 @@ svg {
     color: #676767;
 }
 
-.customomer_info_social a {
-    display: inline-block;
+.customomer_info_social {
     margin-top: -10px;
 }
 
@@ -142,7 +141,6 @@ svg {
     align-items: center;
     border-radius: 100%;
     justify-content: center;
-    cursor: pointer;
     transition: all 0.2s linear;
 }
 
@@ -175,7 +173,7 @@ svg {
     }
 
     .ed_testimonial_slide_item {
-        padding: 40px;
+        padding: 40px 30px;
     }
 
     .customomer_info_media img {
@@ -206,10 +204,15 @@ svg {
     .ed_next_button {
         height: 40px;
         width: 40px;
+        cursor: pointer;
     }
 
     .ed_testimonial_control_btn {
         margin-top: 30px;
         gap: 15px;
+    }
+
+    .customomer_info_social {
+        margin-top: -20px;
     }
 }

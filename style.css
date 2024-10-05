@@ -12,14 +12,19 @@ body {
     font-family: "Ubuntu", sans-serif;
 }
 
+svg {
+    display: flex;
+}
+
 .container {
-    max-width: 1330px;
+    max-width: 1430px;
     padding: 0px 15px;
     margin: 0 auto;
 }
 
 .ed_testimonial {
     padding: 60px 0px;
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
 }
 
 /* testimonial header */
@@ -46,7 +51,8 @@ body {
 .customomer_info_media img {
     border-radius: 50%;
     max-width: 100%;
-    width: 70px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
 }
 
@@ -65,22 +71,47 @@ body {
 
 .customer_info {
     display: flex;
+    gap: 10px;
     align-items: center;
     justify-content: space-between;
 }
+
 
 .customer_review span {
     margin-top: 16px;
     display: inline-block;
     font-size: 18px;
     line-height: 1.3;
-    color: #000;
+    color: #000000c9;
+    font-style: italic;
 }
+
+.quoted {
+    position: relative;
+}
+
+.quoted::before {
+    content: '"';
+    position: absolute;
+    left: -13px;
+    font-size: 24px;
+}
+
+.quoted::after {
+    content: '"';
+    position: absolute;
+    /* right: -20px; */
+    font-size: 24px;
+}
+
 
 .customer_name h4 {
     font-size: 18px;
     color: #000;
     margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .customer_name span {
@@ -93,7 +124,38 @@ body {
     margin-top: -10px;
 }
 
+/* slider controler */
+.ed_testimonial_control_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.ed_prev_button,
+.ed_next_button {
+    height: 35px;
+    width: 35px;
+    background: #9d57af;
+    display: flex;
+    align-items: center;
+    border-radius: 100%;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.ed_prev_button:hover,
+.ed_next_button:hover {
+    background-color: #a722b1;
+}
+
 @media screen and (min-width:768px) {
+    .ed_testimonial {
+        padding: 100px 0px;
+    }
+
     .ed_testimonial_header_content {
         margin-bottom: 60px;
     }
@@ -117,7 +179,8 @@ body {
     }
 
     .customomer_info_media img {
-        width: 100px;
+        width: 110px;
+        height: 110px;
     }
 
     .customer_name h4 {
@@ -132,5 +195,21 @@ body {
     .customer_review span {
         margin-top: 23px;
         font-size: 19px;
+    }
+
+    .customomer_info_social a svg {
+        height: 25px;
+        width: 25px;
+    }
+
+    .ed_prev_button,
+    .ed_next_button {
+        height: 40px;
+        width: 40px;
+    }
+
+    .ed_testimonial_control_btn {
+        margin-top: 30px;
+        gap: 15px;
     }
 }

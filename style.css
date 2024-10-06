@@ -34,11 +34,12 @@ svg {
 }
 
 .shape_1 {
-    right: 20%;
+    right: 0%;
+    bottom: 0;
 }
 
 .shape_2 {
-    left: 20%;
+    left: 5%;
 }
 
 /* testimonial header */
@@ -228,5 +229,14 @@ svg {
 
     .customomer_info_social {
         margin-top: -20px;
+    }
+
+    .shape_1 {
+        right: 20%;
+        bottom: unset;
+    }
+
+    .shape_2 {
+        left: 20%;
     }
 }

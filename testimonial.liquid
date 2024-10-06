@@ -1,0 +1,538 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<style>
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+  svg {
+      display: flex;
+  }
+
+  .container {
+      max-width: 1430px;
+      padding: 0px 15px;
+      margin: 0 auto;
+  }
+
+  .ed_testimonial {
+      position: relative;
+      padding: 60px 0px;
+      background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  }
+
+  .shape_1,
+  .shape_2 {
+      position: absolute;
+  }
+
+  .shape_1 {
+      right: 0%;
+      bottom: 0;
+  }
+
+  .shape_2 {
+      left: 5%;
+  }
+
+  /* testimonial header */
+  .ed_testimonial_header_content {
+      text-align: center;
+      margin-bottom: 40px;
+  }
+
+  .ed_testimonial_header_content h1 {
+      font-size: 25px;
+      padding-bottom: 8px;
+      font-weight: 500;
+  }
+
+  .ed_testimonial_header_content h3 {
+      font-size: 33px;
+      padding-bottom: 10px;
+      color:#000;
+      font-weight:600;
+  }
+
+  .ed_testimonial_header_content span {
+      font-size: 14px;
+  }
+
+  .customomer_info_media img {
+      border-radius: 50%;
+      max-width: 100%;
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+  }
+
+  .ed_testimonial_slide_item {
+      padding: 30px 20px;
+      background: #ededed;
+      border-radius: 15px;
+  }
+
+  .customomer_info_media {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      gap: 15px;
+  }
+
+  .customer_info {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+  }
+
+
+  .customer_review span {
+      margin-top: 16px;
+      display: inline-block;
+      font-size: 18px;
+      line-height: 1.3;
+      color: #000000c9;
+      font-style: italic;
+  }
+
+  .quoted {
+      position: relative;
+  }
+
+  .quoted::before {
+      content: '"';
+      position: absolute;
+      left: -13px;
+      font-size: 24px;
+  }
+
+  .quoted::after {
+      content: '"';
+      position: absolute;
+      /* right: -20px; */
+      font-size: 24px;
+  }
+
+
+  .customer_name h4 {
+      font-size: 18px;
+      color: #000;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+  }
+
+  .customer_name span {
+      font-size: 15px;
+      color: #676767;
+  }
+
+  .customomer_info_social {
+      margin-top: -10px;
+  }
+
+  /* slider controler */
+  .ed_testimonial_control_btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 10px;
+  }
+
+  .ed_prev_button,
+  .ed_next_button {
+      height: 35px;
+      width: 35px;
+      background: #9d57af;
+      display: flex;
+      align-items: center;
+      border-radius: 100%;
+      justify-content: center;
+      transition: all 0.2s linear;
+  }
+
+  .ed_prev_button:hover,
+  .ed_next_button:hover {
+      background-color: #a722b1;
+  }
+
+  @media screen and (min-width:768px) {
+      .ed_testimonial {
+          padding: 100px 0px;
+      }
+
+      .ed_testimonial_header_content {
+          margin-bottom: 60px;
+      }
+
+      .ed_testimonial_header_content h1 {
+          font-size: 30px;
+          padding-bottom: 20px;
+      }
+
+      .ed_testimonial_header_content h3 {
+          font-size: 45px;
+          padding-bottom: 15px;
+      }
+
+      .ed_testimonial_header_content span {
+          font-size: 16px;
+      }
+
+      .ed_testimonial_slide_item {
+          padding: 40px 30px;
+      }
+
+      .customomer_info_media img {
+          width: 110px;
+          height: 110px;
+      }
+
+      .customer_name h4 {
+          font-size: 20px;
+          margin-bottom: 7px;
+      }
+
+      .customer_name span {
+          font-size: 16px;
+      }
+
+      .customer_review span {
+          margin-top: 23px;
+          font-size: 19px;
+      }
+
+      .customomer_info_social a svg {
+          height: 25px;
+          width: 25px;
+      }
+
+      .ed_prev_button,
+      .ed_next_button {
+          height: 40px;
+          width: 40px;
+          cursor: pointer;
+      }
+
+      .ed_testimonial_control_btn {
+          margin-top: 30px;
+          gap: 15px;
+      }
+
+      .customomer_info_social {
+          margin-top: -20px;
+      }
+
+      .shape_1 {
+          right: 20%;
+          bottom: unset;
+      }
+
+      .shape_2 {
+          left: 20%;
+      }
+  }
+</style>
+<section class="ed_testimonial">
+  <div class="shape">
+    {% if section.settings.shape_image_1 != blank  %}
+      <img class="shape_1" src="{{ section.settings.shape_image_1 | img_url: 'medium' }}" alt="Shape 1">
+    {% endif %}
+    {% if section.settings.shape_image_2 != blank  %}
+      <img class="shape_2" src="{{ section.settings.shape_image_2 | img_url: 'medium' }}" alt="Shape 2">
+    {% endif %}
+  </div>
+  <div class="container">
+   <div class="ed_testimonial_header_content">
+      <h1>{{ section.settings.heading_1 }}</h1>
+      <h3>{{ section.settings.heading_3 }}</h3>
+      <span class="subtitle">{{ section.settings.subtitle }}</span>
+    </div>
+    <div class="swiper ed_testtimonials_slide">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide ed_testimonial_slide_item">
+            <div class="customer_info">
+              <div class="customomer_info_media">
+                <img
+                  src="{{ block.settings.customer_img | img_url: 'medium' }}"
+                  alt="{{ block.settings.customer_name }}"
+                >
+                <div class="customer_name">
+                  <h4>
+                    {{ block.settings.customer_name }}
+                    <span>
+                      <svg
+                        width="20px"
+                        height="20px"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM16.0303 8.96967C16.3232 9.26256 16.3232 9.73744 16.0303 10.0303L11.0303 15.0303C10.7374 15.3232 10.2626 15.3232 9.96967 15.0303L7.96967 13.0303C7.67678 12.7374 7.67678 12.2626 7.96967 11.9697C8.26256 11.6768 8.73744 11.6768 9.03033 11.9697L10.5 13.4393L12.7348 11.2045L14.9697 8.96967C15.2626 8.67678 15.7374 8.67678 16.0303 8.96967Z" fill="#117BF7"></path>
+                        </g>
+                      </svg>
+                    </span>
+                  </h4>
+                  <span>@{{ block.settings.social_username }}</span>
+                </div>
+              </div>
+              <div class="customomer_info_social">
+                <a href="{{ block.settings.social_link }}">
+                  {% if block.settings.social_icon == 'facebook' %}
+                    <svg
+                      fill="#000000"
+                      width="25px" height="25px"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z"></path> </g>
+                    </svg>
+                  {% elsif block.settings.social_icon == 'twitter' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="25px" height="25px" viewBox="0 0 256 256" xml:space="preserve">
+                      <defs>
+                      </defs>
+                      <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+                      	<polygon points="24.89,23.01 57.79,66.99 65.24,66.99 32.34,23.01 " style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform="  matrix(1 0 0 1 0 0) "/>
+                      	<path d="M 45 0 L 45 0 C 20.147 0 0 20.147 0 45 v 0 c 0 24.853 20.147 45 45 45 h 0 c 24.853 0 45 -20.147 45 -45 v 0 C 90 20.147 69.853 0 45 0 z M 56.032 70.504 L 41.054 50.477 L 22.516 70.504 h -4.765 L 38.925 47.63 L 17.884 19.496 h 16.217 L 47.895 37.94 l 17.072 -18.444 h 4.765 L 50.024 40.788 l 22.225 29.716 H 56.032 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                      </g>
+                      </svg>
+                  {% elsif block.settings.social_icon == 'instagram' %}
+                    <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
+                            fill="#0F0F0F"></path>
+                        <path
+                            d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z"
+                            fill="#0F0F0F"></path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z"
+                            fill="#0F0F0F"></path>
+                    </svg>
+                  {% elsif block.settings.social_icon == 'linkedin' %}
+                    <svg fill="#000000" width="25px" height="25px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M113,145c-141.4,0-256,114.6-256,256s114.6,256,256,256s256-114.6,256-256S254.4,145,113,145z M41.4,508.1H-8.5V348.4h49.9 V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7c18.4,0,29.7,11.9,30.1,27.7 C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4c-14.9,0-23.2,10-27,19.6 c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6c35.5,0,63.3,23,63.3,72.4V508.1z "></path> </g></svg>
+                  {% endif %}
+                </a>
+              </div>
+            </div>
+            <div class="customer_review">
+              <span class="quoted">{{ block.settings.review_description }}</span>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="ed_testimonial_control_btn">
+        <div class="swiper-button-nexts ed_next_button">
+          <svg
+            fill="#ffffff"
+            height="17px"
+            width="17px"
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 512 512"
+            xml:space="preserve"
+            stroke="#ffffff"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <g>
+                    <g>
+                        <path
+                            d="M168.837,256L388.418,36.418c8.331-8.331,8.331-21.839,0-30.17c-8.331-8.331-21.839-8.331-30.17,0L123.582,240.915 c-8.331,8.331-8.331,21.839,0,30.17l234.667,234.667c8.331,8.331,21.839,8.331,30.17,0c8.331-8.331,8.331-21.839,0-30.17 L168.837,256z">
+                        </path>
+                    </g>
+                </g>
+            </g>
+          </svg>
+        </div>
+        <div class="swiper-button-prevs ed_prev_button">
+          <svg
+            fill="#ffffff"
+            height="17px"
+            width="17px"
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 512 512"
+            xml:space="preserve"
+            stroke="#ffffff"
+            transform="rotate(180)"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <g>
+                    <g>
+                        <path
+                            d="M168.837,256L388.418,36.418c8.331-8.331,8.331-21.839,0-30.17c-8.331-8.331-21.839-8.331-30.17,0L123.582,240.915 c-8.331,8.331-8.331,21.839,0,30.17l234.667,234.667c8.331,8.331,21.839,8.331,30.17,0c8.331-8.331,8.331-21.839,0-30.17 L168.837,256z">
+                        </path>
+                    </g>
+                </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" def></script>
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper('.swiper', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      loop: true,
+      pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+      },
+      navigation: {
+          nextEl: '.swiper-button-nexts',
+          prevEl: '.swiper-button-prevs',
+      },
+      autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+      },
+      speed: 1000,
+      breakpoints: {
+          0: {
+              slidesPerView: 1
+          },
+          768: {
+              slidesPerView: 2,
+              spaceBetween: 30
+          },
+          1025: {
+              slidesPerView: 3,
+              spaceBetween: 30
+          }
+      }
+  });
+</script>
+{% schema %}
+{
+  "name": "Testimonial Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_1",
+      "label": "Main Heading (H1)",
+      "default": "Testimonials"
+    },
+    {
+      "type": "text",
+      "id": "heading_3",
+      "label": "Subheading (H3)",
+      "default": "Public Cheers for Us!"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Find out how our users are spreading the word!"
+    },
+    {
+      "type": "image_picker",
+      "id": "shape_image_1",
+      "label": "Shape Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "shape_image_2",
+      "label": "Shape Image 2"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "customer_img",
+          "label": "Customer Image"
+        },
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "Customer Name"
+        },
+        {
+          "type": "text",
+          "id": "social_username",
+          "label": "Social Media Username"
+        },
+        {
+          "type": "url",
+          "id": "social_link",
+          "label": "Social Media Profile Link"
+        },
+        {
+          "type": "select",
+          "id": "social_icon",
+          "label": "Social Media Icon",
+          "options": [
+            {
+              "value": "facebook",
+              "label": "Facebook"
+            },
+            {
+              "value": "twitter",
+              "label": "Twitter"
+            },
+            {
+              "value": "instagram",
+              "label": "Instagram"
+            },
+            {
+              "value": "linkedin",
+              "label": "LinkedIn"
+            }
+          ]
+        },
+        {
+          "type": "textarea",
+          "id": "review_description",
+          "label": "Review Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial Block",
+      "blocks": [
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
